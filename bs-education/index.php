@@ -1,16 +1,11 @@
-﻿ <?php 
- /*
+<?php
 $server="localhost";
 $username="id2565121_chetanchauhan4321";
 $password="hello123";
 $db="id2565121_skillspread";
 $conn=mysqli_connect($server,$username,$password,$db);
-*/
-$server="localhost";
-$username="learn_php";
-$password="hello123";
-$db="skill_spread";
-$conn=mysqli_connect($server,$username,$password,$db);
+
+
 ?>
 
 
@@ -21,14 +16,27 @@ $conn=mysqli_connect($server,$username,$password,$db);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Skill  Spread">
+  <link rel="apple-touch-icon" href="assets/img/favicon.ico">
+
+  <meta name="msapplication-TileImage" content="assets/img/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2F3BA2">
+
+
+
    
 	<title>Skill Spread</title>
+        <link rel="manifest" href="/manifest.json">
+
 	<link rel="icon" type="image/icon" href="assets/img/favicon.ico">
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/flexslider.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />    
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 </head>
 <body >
    <div class="alert alert-success alert-dismissable fade in">
@@ -214,13 +222,12 @@ $conn=mysqli_connect($server,$username,$password,$db);
                
                  <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
                      <div class="faculty-div">
-                     <img src="assets/img/faculty/author.jpg"  class="img-rounded" />
-                   <h3 >AUTHOR NAME</h3>
+                     <img src="assets/img/faculty/chetanchauhan.jpg" style="hight:400px; width:250px"  class="img-rounded" />
+                   <h3 >Chetan Chauhan</h3>
                  <hr/>
-                         <h4>Qualifications</h4>
+                         <h4>Programmer</h4>
                    <p >
-                       Here is the Desctription About the Author 
-                       
+                       Lovely Professional University 
                    </p>
                 </div>
                    </div>
@@ -281,6 +288,7 @@ $conn=mysqli_connect($server,$username,$password,$db);
 							   Users
 						   </span>
 					   </div>
+					   <a href='$rows[link]' class='btn btn-primary'>Go To Course</a>
 			    </div>
             </div>
 	";
@@ -461,6 +469,7 @@ $conn=mysqli_connect($server,$username,$password,$db);
     <script src="assets/js/scrollReveal.js"></script>
     <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="scripts/app1.js"></script>
 </body>
 </html>
 <?php
