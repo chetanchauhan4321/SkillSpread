@@ -29,7 +29,7 @@ $conn=mysqli_connect($server,$username,$password,$db);
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/flexslider.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />    
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body>
@@ -215,12 +215,12 @@ $conn=mysqli_connect($server,$username,$password,$db);
                
                  <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
                      <div class="faculty-div">
-                     <img src="assets/img/faculty/author.jpg"  class="img-rounded" />
-                   <h3 >AUTHOR NAME</h3>
+                     <img src="assets/img/faculty/chetanchauhan.jpg" style="hight:400px; width:250px" class="img-rounded" />
+                   <h3 >Chetan Chauhan</h3>
                  <hr/>
-                         <h4>Qualifications</h4>
+                         <h4>Programmer</h4>
                    <p >
-                       Here is the Desctription About the Author 
+                       Lovely Professional University 
                        
                    </p>
                 </div>
@@ -283,6 +283,7 @@ $conn=mysqli_connect($server,$username,$password,$db);
 							   Users
 						   </span>
 					   </div>
+					   <a href='$rows[link]' class='btn btn-primary'>Go To Course</a>
 					   <a href='admin.php?course_del_id=$rows[id]' class='btn btn-danger'>Delete</a>
 			    </div>
             </div>
@@ -386,6 +387,10 @@ $conn=mysqli_connect($server,$username,$password,$db);
 					<div class="form-group">
 					<label>Total Users</label>
 					<input type="number" class="form-control" name="total_users" rows="10"  placeholder="Total Users" required>
+					</div>
+					<div class="form-group">
+					<label>Add Link</label>
+					<input type="text" class="form-control" name="link" rows="10"  placeholder="Add Course Link Here" required>
 					</div>
 					<div class="form-group">
 					<input type="submit" class="btn btn-block" style="background:#66cc0d" name="add_course">	
@@ -653,6 +658,8 @@ $conn=mysqli_connect($server,$username,$password,$db);
     <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/custom.js"></script>
    
+
+   
 </body>
 </html>
 <?php
@@ -668,6 +675,21 @@ if(isset($_GET['del_id'])){
 	}
 	
 	
+}
+else if(isset($_POST['submit_request']))
+{
+    	echo $name=mysqli_real_escape_string($conn,strip_tags($_POST['name']));
+	echo $email=mysqli_real_escape_string($conn,strip_tags($_POST['email']));
+	echo $message=mysqli_real_escape_string($conn,strip_tags($_POST['message']));
+	echo $date=date('Y-m-d');
+	$ins_sql="INSERT INTO users (name,email,message,date) VALUES('$name','$email','$message','$date')";
+	if(mysqli_query($conn,$ins_sql)){
+		?>
+		<script>window.location="admin.php"</script>
+		
+		<?php
+	}
+    
 }
 else if(isset($_GET['course_del_id'])){
 	$del_sql="DELETE FROM courses WHERE id='$_GET[course_del_id]' ";
@@ -698,8 +720,9 @@ else if(isset($_POST['add_course'])){
 	echo $image=mysqli_real_escape_string($conn,strip_tags($_POST['image']));
 	echo $course_desc=mysqli_real_escape_string($conn,strip_tags($_POST['course_desc']));
 	echo $total_users=mysqli_real_escape_string($conn,strip_tags($_POST['total_users']));
+	echo $link=mysqli_real_escape_string($conn,strip_tags($_POST['link']));
 	echo $date=date('Y-m-d');
-	$ins_sql="INSERT INTO courses (image,course_tittle,course_desc,total_users) VALUES('$image','$course_tittle','$course_desc','$total_users')";
+	$ins_sql="INSERT INTO courses (image,course_tittle,course_desc,total_users,link) VALUES('$image','$course_tittle','$course_desc','$total_users','$link')";
 	if(mysqli_query($conn,$ins_sql)){
 		?>
 		<script>window.location="admin.php"</script>
