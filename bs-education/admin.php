@@ -4,7 +4,7 @@ $username="id2565121_chetanchauhan4321";
 $password="hello123";
 $db="id2565121_skillspread";
 $conn=mysqli_connect($server,$username,$password,$db);
-
+include('session.php');
 
 /*$server="localhost";
 $username="learn_php";
@@ -56,7 +56,7 @@ $conn=mysqli_connect($server,$username,$password,$db);
                      <li><a href="#add-book" class="navi">ADD BOOK</a></li>
                      <li><a href="#contact-sec" class="navi">CONTACT</a></li>
                      <li><a href="#database-sec" class="navi">DATABASE</a></li>
-                     <li><a href="#sign-up" >SIGN-UP/LOG-IN</a></li>
+                     <li><a href="logout.php" >Log Out</a></li>
                 </ul>
             </div>
            
